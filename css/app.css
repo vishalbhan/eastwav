@@ -8,8 +8,13 @@ img {
   max-width: 100%;
 }
 
-html {
+body {
   cursor: url('/img/cursor.cur'), auto;
+  font-family: 'Oswald', sans-serif;
+}
+
+.bold {
+  font-weight: 700;
 }
 
 .logo {
@@ -18,7 +23,47 @@ html {
   top: 8px;
   left: 0px;
   width: 140px;
+}
+
+/* Line-up
+********************************************************************************/
+
+.line-up {
+  position: fixed;
+  z-index: 2;
+  font-size: 34px;
+  width: 678px;
+  text-align: center;
+  padding: 24px;
   background: #fff;
+  border: 6px solid #000;
+  top: 136px;
+  left: 12px;
+  line-height: 170%;
+}
+
+.artist {
+  background-position: 0 100%;
+	background-repeat: repeat-x;
+	background-size: 4px 4px;
+  color: #000;
+}
+
+.artist:hover {
+  opacity: 1;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .5s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%2300649B' stroke-width='2' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
+  background-position: 0 100%;
+  background-size: 22px 6px;
+  background-repeat: repeat-x;
+}
+
+@keyframes wavyunderline {
+  from {
+    background-position: 2px 19px;
+  }
+  to {
+    background-position: 500px 19px;
+  }
 }
 
 /* Borders
@@ -67,6 +112,6 @@ html {
   position: fixed;
   width: 100vw;
   height: 100vh;
-  bottom: -100px;
+  bottom: 0;
   transform: rotate(180deg) translateY(0);
 }
