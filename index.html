@@ -584,9 +584,11 @@
     $(document).ready(() => {
 
       // Sun
-      let left = $('.logo').offset().left;
-      let top = $('.logo').offset().top;
-      $(".sun").css({ opacity: '1', left: left, top: top });
+      setTimeout(() => {
+        let left = $('.logo').offset().left;
+        let top = $('.logo').offset().top;
+        $(".sun").css({ opacity: '1', left: left, top: top });
+      }, 500)
 
       // Scroll functions
       let distance = $('#target').offset().top;
