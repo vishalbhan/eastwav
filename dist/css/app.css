@@ -113,7 +113,7 @@ section {
 
 .intro-section {
   padding: 0 12px;
-  height: calc(100vh - 24px);
+  height: calc(100vh - 36px);
   flex-direction: column;
 }
 
