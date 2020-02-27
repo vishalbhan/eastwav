@@ -16,7 +16,7 @@ img {
 }
 
 body {
-  cursor: url('/img/cursor.cur'), auto;
+  cursor: url('../img/cursor.cur'), auto;
   padding: 12px;
   font-family: 'Open Sans Condensed', sans-serif;
   font-weight: bold;
@@ -45,7 +45,7 @@ body {
   font-weight: bold;
   text-align: center;
   text-transform: uppercase;
-  transition: 1.2s ease;
+  transition: 0.3s linear;
 }
 
 .mb-12 {
@@ -76,13 +76,13 @@ p {
 .waves {
   z-index: -1;
   position: fixed;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   top: 0;
   left: -10%;
   background: var(--wave-bg);
   transform: scale(1.2);
-  transition: 1.2s ease; 
+  transition: 0.3s linear; 
 }
 
 .waves svg {
@@ -101,7 +101,30 @@ p {
 
 svg path {
   fill: var(--wave-fill);
-  transition: 1.2s ease;
+  transition: 0.3s linear;
+}
+
+.fixed-cta {
+  display: block;
+  z-index: 2;
+  position: fixed;
+  bottom: 12px;
+  width: 100%;
+  transform: translateY(150%);
+  transition: 0.3s linear;
+  padding: 12px;
+}
+
+.fixed-cta.show {
+  transform: translateY(0);
+}
+
+.fixed-cta .fixed-logo {
+  display: none;
+}
+
+.fixed-cta .btn {
+  width: calc(100% - 24px);
 }
 
 /* Page Sections
@@ -126,7 +149,7 @@ section {
   color: var(--text-color);
   font-weight: bold;
   text-transform: uppercase;
-  transition: 1.2s ease;
+  transition: 0.3s linear;
 }
 
 .text-center {
@@ -143,6 +166,7 @@ section {
 
 .icon-scroll {
   animation: scroll 2.2s ease-in infinite;
+  transition: 0.3s linear;
 }
 
 @keyframes scroll {
@@ -155,8 +179,10 @@ section {
   padding: 24px;
 }
 
-.artist {
-  margin-bottom: 48px;
+.artists-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 40px;
 }
 
 .artist-image {
@@ -165,7 +191,7 @@ section {
   border-radius: 50%;
   overflow: hidden;
   border: 5px solid var(--wave-fill);
-  transition: 1.2s ease;
+  transition: 0.3s linear;
   margin: 0 auto 10px;
 }
 
@@ -176,6 +202,12 @@ section {
 
 .artist-name {
   font-size: 24px;
+}
+
+.venue-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 20px;
 }
 
 .venue-images-grid {
@@ -190,19 +222,95 @@ section {
   grid-gap: 10px;
 }
 
-.fixed-cta {
-  position: fixed;
-  bottom: 12px;
-  width: 100%;
-  transform: translateY(150%);
-  transition: 0.3s ease;
-  padding: 12px;
+/* Responsive
+********************************************************************************/
+
+@media screen and (min-width: 767px) {
+
+  .container {
+    max-width: 100%;
+    padding: 0 20px;
+    margin: 0 auto;
+  }
+
+  .mobile-text-left {
+    text-align: left !important;
+  }
+
+  .fixed-cta {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    z-index: 2;
+    position: fixed;
+    top: 12px;
+    bottom: auto;
+    width: calc(100% - 24px);
+    transform: translateY(-150%);
+    padding: 0;
+  }
+
+  .fixed-cta .fixed-logo {
+    display: block;
+    width: 120px;
+  }
+
+  .fixed-cta .btn {
+    width: auto;
+    margin: 12px;
+  }
+
+  .intro-section {
+    margin-bottom: 32px;
+  }
+
+  .venue-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .artists-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px;
+  }
+
+  .artist-image {
+    width: 240px;
+    height: 240px;
+  }
+
+  .partner-logos-grid {
+    grid-template-columns: repeat(7, 1fr);
+  }
+
 }
 
-.fixed-cta.show {
-  transform: translateY(0);
+@media screen and (min-width: 1000px) {
+
+  .waves {
+    transform: scale(1.25);
+  }
+
+  .waves svg {
+    width: 100vw;
+    height: auto;
+  }
+
+  p {
+    font-size: 24px;
+  }
+
 }
 
-.fixed-cta .btn {
-  width: calc(100% - 24px);
+@media screen and (min-width: 1140px) {
+
+  .container {
+    width: 1120px;
+  }
+
+  .artists-grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+  }
+
 }
