@@ -445,16 +445,19 @@
   <!-- Fixed CTA -->
   <div class="fixed-cta">
     <div class="fixed-logo"><img src="img/logo.png" alt="" /></div>
-    <a class="btn" href="https://www.skillboxes.com/event-detail/eastwav-music-festival" target="_blank">Book Your Spot
-      Now</a>
+    <a class="btn" href="https://www.skillboxes.com/event-detail/eastwav-music-festival" target="_blank">
+      Book Tickets Now
+    </a>
   </div>
+
+  <div class="sun"><!-- sun-div --></div>
 
   <!-- Main Container -->
   <div class="container">
 
     <!-- Intro -->
     <div class="intro-section flex-center">
-      <div class="logo">
+      <div id="logo" class="logo">
         <img src="img/logo.png" alt="EAST.WAV Logo">
       </div>
       <div class="date-venue">
@@ -579,6 +582,13 @@
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
   <script>
     $(document).ready(() => {
+
+      // Sun
+      let left = $('.logo').offset().left;
+      let top = $('.logo').offset().top;
+      $(".sun").css({ opacity: '1', left: left, top: top });
+
+      // Scroll functions
       let distance = $('#target').offset().top;
       let $window = $(window);
 
@@ -594,12 +604,14 @@
           document.documentElement.style.setProperty('--text-color', '#000000');
           document.documentElement.style.setProperty('--wave-bg', 'rgb(255,239,119)');
           document.documentElement.style.setProperty('--wave-fill', 'rgb(170,196,206)');
+          $(".sun").css({ opacity: '1', background: '#FDB318' });
         }
         if ($window.scrollTop() >= distance) {
           document.documentElement.style.setProperty('--bg-color', '#000000');
           document.documentElement.style.setProperty('--text-color', '#ffffff');
           document.documentElement.style.setProperty('--wave-bg', '#000000');
           document.documentElement.style.setProperty('--wave-fill', '#0000ff');
+          $(".sun").css({ opacity: '0.5', background: '#ffffff' });
         }
       });
     })
