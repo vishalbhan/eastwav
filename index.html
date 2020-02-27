@@ -604,14 +604,20 @@
           document.documentElement.style.setProperty('--text-color', '#000000');
           document.documentElement.style.setProperty('--wave-bg', 'rgb(255,239,119)');
           document.documentElement.style.setProperty('--wave-fill', 'rgb(170,196,206)');
-          $(".sun").css({ opacity: '1', background: '#FDB318' });
+          // $(".sun").css({ opacity: '1', background: '#FDB318' });
+          if (window.innerWidth < 769) {
+            $(".sun").css({ transform: `translateY(${$window.scrollTop() * 0.25}px)` })
+          }
+          if (window.innerWidth > 769) {
+            $(".sun").css({ transform: `translateY(${$window.scrollTop() * 0.42}px)` })
+          }
         }
         if ($window.scrollTop() >= distance) {
           document.documentElement.style.setProperty('--bg-color', '#000000');
           document.documentElement.style.setProperty('--text-color', '#ffffff');
           document.documentElement.style.setProperty('--wave-bg', '#000000');
           document.documentElement.style.setProperty('--wave-fill', '#0000ff');
-          $(".sun").css({ opacity: '0.5', background: '#ffffff' });
+          // $(".sun").css({ opacity: '0.5', background: '#ffffff' });
         }
       });
     })
